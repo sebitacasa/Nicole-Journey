@@ -97,7 +97,7 @@ export default async function JourneyDetail({ params }: { params: Promise<{ slug
         {/* SECCIÓN INFERIOR: Mosaico de Galería Compacto */}
         {galleryImages.length > 0 && (
           <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-10">
-            {galleryImages.map((src, index) => (
+            {galleryImages.map((src: string, index: number) => (
               <div 
                 key={index} 
                 className={`modern-card bg-white p-2 md:p-3 relative flex flex-col ${getDynamicGridClasses(index)}`}
