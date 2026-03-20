@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta Moderna Editorial */
+  --color-cream: #FDFCFB;         /* Fondo cálido limpio */
+  --color-petrol-dark: #0D4755;   /* Petrol profundo para textos y acentos */
+  --color-petrol-light: #F0F4F5;  /* Petrol muy claro para fondos sutiles */
+  --color-yellow-brutal: #FFD166; /* Amarillo mostaza para etiquetas (opcional) */
+
+  /* Variables de fuentes */
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
 }
 
+/* Clases utility de Tailwind v4 */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: var(--color-cream);
+  --color-petrol-dark: var(--color-petrol-dark);
+  --color-petrol-light: var(--color-petrol-light);
+  --color-yellow-brutal: var(--color-yellow-brutal);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Reset Global */
+html, body {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream);
+  color: var(--color-petrol-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Letra Capitular (Capitular) */
+.drop-cap {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 5.5rem;
+  line-height: 0.8;
+  padding-top: 8px;
+  padding-right: 12px;
+  font-weight: 900;
+  color: var(--color-petrol-dark);
+}
+
+/* --- TARJETA MODERNA (SOFT ROUNDING & SHADOW) --- */
+.modern-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 71, 85, 0.1); /* Borde muy fino y tenue */
+  border-radius: 1rem; /* rounded-2xl (16px) */
+  
+  /* LA MAGIA: Sombra muy suave y sutil */
+  box-shadow: 0 1px 2px 0 rgba(13, 71, 85, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover suave */
+.modern-card:hover {
+  transform: translateY(-4px); /* Se levanta suavemente */
+  box-shadow: 0 10px 15px -3px rgba(13, 71, 85, 0.1), 0 4px 6px -2px rgba(13, 71, 85, 0.05); /* Sombra más grande al hacer hover */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
